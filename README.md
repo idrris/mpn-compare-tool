@@ -50,6 +50,8 @@ DIGIKEY_CLIENT_SECRET=your_client_secret
 - `EOL/eol_attr_extractor.py` fetches a product by MPN and returns a normalized `attributes` map.
 - The Flask view queries both MPNs, merges the parameter names, and marks matches by case‑insensitive string equality.
 - The web UI is a simple HTML table with matching cells highlighted.
+  
+  ![MPN comparer — highlights on](assets/compare-demo.png)
 
 ## Notes
 

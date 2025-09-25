@@ -1,0 +1,101 @@
+
+:root {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --green: #ecfdf5;
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 { margin-top: 0; font-size: 28px; letter-spacing: .2px; }
+
+.mpn-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.input-group { display: flex; flex-direction: column; gap: 6px; }
+label { color: var(--muted); font-size: 13px; }
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1328;
+  color: var(--text);
+  outline: none;
+}
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #1f2a44;
+  color: var(--text);
+  cursor: pointer;
+}
+button:hover { background: #25304e; }
+
+.result { margin-top: 16px; }
+.mpn-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+.mpn-cell { color: var(--muted); font-size: 14px; }
+
+.table-wrap {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 14px;
+  overflow: auto;
+}
+
+table { width: 100%; min-width: 800px; border-collapse: separate; border-spacing: 0; }
+thead th {
+  position: sticky; top: 0;
+  background: #0d1a33;
+  text-align: left;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody td {
+  font-size: 14px;
+  color: var(--text);
+  padding: 12px;
+  border-bottom: 1px solid #0e1a30;
+  vertical-align: top;
+}
+td.param { color: var(--muted); width: 30%; }
+td.val.match { background: var(--green); color: #065f46; font-weight: 600; }
+
+.legend { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.legend .swatch { width: 16px; height: 12px; background: var(--green); border-radius: 3px; display: inline-block; }

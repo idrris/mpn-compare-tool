@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MPN Attribute Compare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>MPN Attribute Compare</h1>
+      <form method="post" class="mpn-form">
+        <div class="inputs">
+          <div class="input-group">
+            <label for="mpn1">MPN #1</label>
+            <input id="mpn1" name="mpn1" type="text" placeholder="e.g., 4414F" value="{{ mpn1 }}" required>
+          </div>
+          <div class="input-group">
+            <label for="mpn2">MPN #2</label>
+            <input id="mpn2" name="mpn2" type="text" placeholder="e.g., 4414F-2" value="{{ mpn2 }}" required>
+          </div>
+        </div>
+        <button type="submit">Compare</button>
+      </form>
+
+      {% if result %}
+      <div class="result">
+        <div class="mpn-head">
+          <div class="mpn-cell"></div>
+          <div class="mpn-cell"><strong>{{ result.mpn1 }}</strong>{% if result.url1 %} — <a href="{{ result.url1 }}" target="_blank">product page</a>{% endif %}</div>
+          <div class="mpn-cell"><strong>{{ result.mpn2 }}</strong>{% if result.url2 %} — <a href="{{ result.url2 }}" target="_blank">product page</a>{% endif %}</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>{{ result.mpn1 }}</th>
+                <th>{{ result.mpn2 }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in result.rows %}
+              <tr>
+                <td class="param">{{ r.param }}</td>
+                <td class="val {% if r.match %}match{% endif %}">{{ r.v1 }}</td>
+                <td class="val {% if r.match %}match{% endif %}">{{ r.v2 }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <p class="legend"><span class="swatch"></span> matching values highlighted</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

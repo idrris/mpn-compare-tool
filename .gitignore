@@ -1,0 +1,27 @@
+# Python / venv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Env/secrets
+.env
+.env.*.local
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Caches / logs
+.mypy_cache/
+.pytest_cache/
+*.log
+
+# Local artifacts
+mpn-compare-tool.zip
